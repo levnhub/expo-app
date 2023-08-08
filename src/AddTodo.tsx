@@ -9,7 +9,7 @@ export const AddTodo = ({ onSubmit }: IAddTodo) => {
   const [value, setValue] = useState('');
   const pressHandle = () => {
     if (value.trim()) {
-      onSubmit(' ');
+      onSubmit(value);
     } else {
       Alert.alert('Значение не может быть пустым');
     }
@@ -21,7 +21,9 @@ export const AddTodo = ({ onSubmit }: IAddTodo) => {
         style={styles.input}
         onChangeText={setValue}
         value={value}
-        placeholder={'Введите значение'}
+        placeholder="Введите значение"
+        autoCorrect={false}
+        autoCapitalize="none"
       />
       <Button title={'Добавить'} onPress={pressHandle} />
     </View>
